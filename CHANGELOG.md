@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v0.13.1 - 7 January 2026
+
+- Updates the project capacity check for a true 6 decimal precision check.
+- Breaks apart all long error messages so they are defined outside of the error call.
+
 ## v0.13 - 23 December 2025
 
 ### Default Data Now Available
