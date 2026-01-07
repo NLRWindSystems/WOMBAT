@@ -422,9 +422,8 @@ class Metrics:
 
         by = by.lower().strip()
         if by not in ("windfarm", "turbine", "electrolyzer"):
-            raise ValueError(
-                '`by` must be one of "windfarm", "turbine", or "electrolyzer".'
-            )
+            msg = '`by` must be one of "windfarm", "turbine", or "electrolyzer".'
+            raise ValueError(msg)
 
         by_windfarm = by == "windfarm"
         by_electrolyzer = by == "electrolyzer"
@@ -498,9 +497,8 @@ class Metrics:
 
         by = by.lower().strip()
         if by not in ("windfarm", "turbine", "electrolyzer"):
-            raise ValueError(
-                '`by` must be one of "windfarm", "turbine", or "electrolyzer".'
-            )
+            msg = '`by` must be one of "windfarm", "turbine", or "electrolyzer".'
+            raise ValueError(msg)
 
         by_windfarm = by == "windfarm"
         by_electrolyzer = by == "electrolyzer"
@@ -592,9 +590,8 @@ class Metrics:
 
         by = by.lower().strip()
         if by not in ("windfarm", "turbine", "electrolyzer"):
-            raise ValueError(
-                '`by` must be one of "windfarm", "turbine", or "electrolyzer".'
-            )
+            msg = '`by` must be one of "windfarm", "turbine", or "electrolyzer".'
+            raise ValueError(msg)
 
         by_windfarm = by == "windfarm"
         by_electrolyzer = by == "electrolyzer"
@@ -665,9 +662,8 @@ class Metrics:
         """
         which = which.lower().strip()
         if which not in ("scheduled", "unscheduled", "both"):
-            raise ValueError(
-                '``which`` must be one of "scheduled", "unscheduled", or "both".'
-            )
+            msg = '``which`` must be one of "scheduled", "unscheduled", or "both".'
+            raise ValueError(msg)
 
         frequency = _check_frequency(frequency, which="all")
 
@@ -972,10 +968,11 @@ class Metrics:
             raise ValueError("``by_equipment`` must be one of ``True`` or ``False``")
 
         if not isinstance(vessel_crew_assumption, dict):
-            raise ValueError(
+            msg = (
                 "`vessel_crew_assumption` must be a dictionary of vessel name (keys)"
                 " and number of crew (values)"
             )
+            raise ValueError(msg)
 
         # Filter by the at sea indicators and required columns
         at_sea = self.events
@@ -1593,9 +1590,8 @@ class Metrics:
         if missing := set(self.service_equipment_names).difference(
             [*emissions_factors]
         ):
-            raise KeyError(
-                f"`emissions_factors` is missing the following keys: {missing}"
-            )
+            msg = f"`emissions_factors` is missing the following keys: {missing}"
+            raise KeyError(msg)
 
         valid_categories = ("transit", "maneuvering", "idle at port", "idle at site")
         emissions_categories = list(
@@ -1606,10 +1602,11 @@ class Metrics:
             len(set(valid_categories).difference(emissions_input.keys())) > 0
             or len(set(emissions_input.values())) > 1
         ):
-            raise KeyError(
+            msg = (
                 "Each servicing equipment's emissions factors must have inputs for:"
                 f"{valid_categories}"
             )
+            raise KeyError(msg)
 
         # Create the agent/duration subset
         equipment_usage = (
@@ -1909,9 +1906,8 @@ class Metrics:
 
         resolution = resolution.lower().strip()
         if resolution not in ("low", "medium", "high"):
-            raise ValueError(
-                '``resolution`` must be one of "low", "medium", or "high".'
-            )
+            msg = '``resolution`` must be one of "low", "medium", or "high".'
+            raise ValueError(msg)
 
         # Get the appropriate values and convert to the currency base
         keys = self.fixed_costs.resolution[resolution]

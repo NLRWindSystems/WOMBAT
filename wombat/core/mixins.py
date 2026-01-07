@@ -81,9 +81,8 @@ class RepairsMixin:
             start = self.port.settings.workday_start
             end = self.port.settings.workday_end
         else:
-            raise ValueError(
-                "Can only set the workday settings from a 'port' or 'env'."
-            )
+            msg = "Can only set the workday settings from a 'port' or 'env'."
+            raise ValueError(msg)
 
         self.settings._set_environment_shift(
             *check_working_hours(

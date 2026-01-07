@@ -372,17 +372,17 @@ def annual_date_range(
     """
     # Check the year bounds
     if end_year < start_year:
-        raise ValueError(
-            f"The end_year ({start_year}) is later than the start_year ({end_year})."
-        )
+        msg = f"The end_year ({start_year}) is later than the start_year ({end_year})."
+        raise ValueError(msg)
 
     # Check the month, date combination bounds
     start = datetime.datetime(2022, start_month, start_day)
     end = datetime.datetime(2022, end_month, end_day)
     if end < start:
-        raise ValueError(
+        msg = (
             f"The starting month/day combination: {start}, is after the ending: {end}."
         )
+        raise ValueError(msg)
 
     # Create a list of arrays of date ranges for each year
     start = datetime.datetime(1, start_month, start_day)
@@ -470,22 +470,25 @@ def check_start_stop_dates(
     if value is None:
         if start_date is None:
             return
-        raise ValueError(
+        msg = (
             "A starting date was provided, but no ending date was provided"
             f" for `{attribute.name}`."
         )
+        raise ValueError(msg)
 
     if start_date is None:
-        raise ValueError(
+        msg = (
             "An ending date was provided, but no starting date was provided"
             f" for `{start_name}`."
         )
+        raise ValueError(msg)
 
     if start_date == value:
-        raise ValueError(
+        msg = (
             f"Starting date (`{start_name}`={start_date} and ending date"
             f" (`{attribute.name}`={value}) cannot be the same date."
         )
+        raise ValueError(msg)
 
 
 def convert_maintenance_list(value: list[dict], self_) -> list[Maintenance]:
@@ -547,10 +550,11 @@ def validate_0_1_inclusive(
         The input value for `speed_reduction_factor`.
     """
     if value < 0 or value > 1:
-        raise ValueError(
+        msg = (
             f"Input for {attribute.name} must be between 0 and 1, inclusive, not:"
             f" {value=}."
         )
+        raise ValueError(msg)
 
 
 def to_datetime(value: str | datetime.datetime) -> datetime.datetime:
@@ -627,10 +631,11 @@ class FromDictMixin:
         ]
         undefined = sorted(set(required_inputs) - set(kwargs))
         if undefined:
-            raise AttributeError(
+            msg = (
                 f"The class defintion for {cls.__name__} is missing the following"
                 f" inputs: {undefined}"
             )
+            raise AttributeError(msg)
         return cls(**kwargs)
 
 
@@ -1216,9 +1221,8 @@ class DateLimitsMixin:
             original_start = getattr(self, f"{which}_start")
             original_end = getattr(self, f"{which}_end")
         else:
-            raise ValueError(
-                "`which` must be one of 'reduced_speed' or 'non_operational'."
-            )
+            msg = "`which` must be one of 'reduced_speed' or 'non_operational'."
+            raise ValueError(msg)
 
         if original_start is not None:
             if new_start is not None:
@@ -1284,16 +1288,16 @@ class DateLimitsMixin:
 
         # Check that the input year range is valid
         if not isinstance(start_year, int):
-            raise ValueError(
-                f"Input to `start_year`: {start_year}, must be an integer."
-            )
+            msg = f"Input to `start_year`: {start_year}, must be an integer."
+            raise ValueError(msg)
         if not isinstance(end_year, int):
             raise ValueError(f"Input to `end_year`: {end_year}, must be an integer.")
         if end_year < start_year:
-            raise ValueError(
+            msg = (
                 "`start_year`: {start_year}, must less than or equal to the"
                 f" `end_year`: {end_year}"
             )
+            raise ValueError(msg)
 
         # Create the date range
         dates = annualized_date_range(
@@ -1357,16 +1361,16 @@ class DateLimitsMixin:
 
         # Check that the input year range is valid
         if not isinstance(start_year, int):
-            raise ValueError(
-                f"Input to `start_year`: {start_year}, must be an integer."
-            )
+            msg = f"Input to `start_year`: {start_year}, must be an integer."
+            raise ValueError(msg)
         if not isinstance(end_year, int):
             raise ValueError(f"Input to `end_year`: {end_year}, must be an integer.")
         if end_year < start_year:
-            raise ValueError(
+            msg = (
                 "`start_year`: {start_year}, must less than or equal to the"
                 f" `end_year`: {end_year}"
             )
+            raise ValueError(msg)
 
         # Create the date range
         dates = annualized_date_range(
@@ -1770,16 +1774,18 @@ class UnscheduledServiceEquipmentData(FromDictMixin, DateLimitsMixin):
         """Ensure a valid threshold is provided for a given ``strategy``."""
         if self.strategy == "downtime":
             if value <= 0 or value >= 1:
-                raise ValueError(
+                msg = (
                     "Downtime-based strategies must have a ``strategy_threshold``",
                     "between 0 and 1, non-inclusive!",
                 )
+                raise ValueError(msg)
         if self.strategy == "requests":
             if value <= 0:
-                raise ValueError(
+                msg = (
                     "Requests-based strategies must have a ``strategy_threshold``",
                     "greater than 0!",
                 )
+                raise ValueError(msg)
 
     def __attrs_post_init__(self) -> None:
         """Post-initialization hook."""
@@ -1865,10 +1871,11 @@ class ServiceEquipmentData(FromDictMixin):
                 self, "strategy", clean_string_input(self.data_dict["strategy"])
             )
         if self.strategy not in VALID_STRATEGIES:
-            raise ValueError(
+            msg = (
                 f"ServiceEquipment strategy should be one of {VALID_STRATEGIES};"
                 f" input: {self.strategy}."
             )
+            raise ValueError(msg)
 
     def determine_type(
         self,
