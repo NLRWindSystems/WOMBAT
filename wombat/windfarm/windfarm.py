@@ -233,10 +233,11 @@ class Windfarm:
             name = data["subassembly"]
             node_type = data["type"]
             if name == "":
-                raise ValueError(
+                msg = (
                     "A 'subassembly' file must be specified for all nodes in the"
                     " windfarm layout!"
                 )
+                raise ValueError(msg)
 
             # Read in unique system configuration files only once, and reference
             # the existing dictionary when possible to reduce I/O
@@ -253,9 +254,8 @@ class Windfarm:
                         )
                         raise ValueError(msg)
                     if (subassembly_dict := self._inputs[node_type].get(name)) is None:  # type: ignore
-                        raise KeyError(
-                            f"No configuration provided for {node_type}: {name}"
-                        )
+                        msg = f"No configuration provided for {node_type}: {name}"
+                        raise KeyError(msg)
                 self.configs[node_type][name] = subassembly_dict
 
             # Create the turbine or substation simulation object
@@ -286,10 +286,11 @@ class Windfarm:
 
             # Check that the cable data is provided
             if name == "":
-                raise ValueError(
+                msg = (
                     "An 'upstream_cable' file must be specified for all nodes in the"
                     " windfarm layout!"
                 )
+                raise ValueError(msg)
 
             # Read in unique cable configuration files once to reduce I/O
             if (cable_dict := self.configs["cable"].get(name)) is None:

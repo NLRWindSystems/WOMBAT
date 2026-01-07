@@ -160,10 +160,11 @@ class System:
             self.subassemblies.append(getattr(self, name))
 
         if self.subassemblies == []:
-            raise ValueError(
+            msg = (
                 "At least one subassembly definition requred for ",
                 f"ID: {self.id}, Name: {self.name}.",
             )
+            raise ValueError(msg)
 
         self.env.log_action(
             agent=self.name,

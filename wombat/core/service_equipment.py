@@ -121,9 +121,8 @@ def validate_end_points(start: str, end: str, *, no_intrasite: bool = False) -> 
         ``no_intrasite`` is set to ``True``.
     """
     if start not in ("port", "site", "system"):
-        raise ValueError(
-            "``start`` location must be one of 'port', 'site', or 'system'!"
-        )
+        msg = "``start`` location must be one of 'port', 'site', or 'system'!"
+        raise ValueError(msg)
     if end not in ("port", "site", "system"):
         raise ValueError("``end`` location must be one of 'port', 'site', or 'system'!")
     if no_intrasite and (start == end == "system"):
@@ -823,10 +822,11 @@ class ServiceEquipment(RepairsMixin):
             ``hours``.
         """
         if hours < 0:
-            raise ValueError(
+            msg = (
                 f"`hours` must be greater than 0 for {self.name} to process"
                 " a weather delay"
             )
+            raise ValueError(msg)
         if hours == 0:
             return
 
@@ -1334,9 +1334,8 @@ class ServiceEquipment(RepairsMixin):
         elif which == "reconnect":
             hours_to_process = self.settings.reconnection_hours
         else:
-            raise ValueError(
-                f"Only `unmoor` and `reconnect` are allowable inputs, not {which}"
-            )
+            msg = f"Only `unmoor` and `reconnect` are allowable inputs, not {which}"
+            raise ValueError(msg)
 
         salary_cost = self.calculate_salary_cost(hours_to_process)
         hourly_cost = self.calculate_hourly_cost(hours_to_process)

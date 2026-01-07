@@ -173,9 +173,8 @@ class WombatEnvironment(simpy.Environment):
         if not 0 <= self.workday_end <= 24:
             raise ValueError("workday_end must be a valid 24hr time.")
         if self.workday_end <= self.workday_start:
-            raise ValueError(
-                "Work shifts must end after they start ({self.workday_start}hrs)."
-            )
+            msg = "Work shifts must end after they start ({self.workday_start}hrs)."
+            raise ValueError(msg)
 
         self.port_distance = port_distance
         self.weather = self._weather_setup(weather_file, start_year, end_year)
@@ -491,10 +490,11 @@ class WombatEnvironment(simpy.Environment):
         if start_year is None:
             pass
         elif start_year > self.end_year:
-            raise ValueError(
+            msg = (
                 f"'start_year' ({start_year}) occurs after the last available year"
                 f" in the weather data (range: {self.end_year})"
             )
+            raise ValueError(msg)
         else:
             # Filter for the provided, validated starting year and update the attribute
             weather = (
@@ -508,16 +508,18 @@ class WombatEnvironment(simpy.Environment):
         if end_year is None:
             pass
         elif start_year is None and end_year < self.start_year:
-            raise ValueError(
+            msg = (
                 f"The provided 'end_year' ({end_year}) is before the start_year"
                 f" ({self.start_year})"
             )
+            raise ValueError(msg)
         elif start_year is not None:
             if end_year < start_year:
-                raise ValueError(
+                msg = (
                     f"The provided 'end_year' ({end_year}) is before the start_year"
                     f" ({start_year})"
                 )
+                raise ValueError(msg)
             else:
                 # Filter for the provided, validated ending year and update
                 weather = weather.filter(pl.col("datetime").dt.year() <= end_year)
@@ -647,9 +649,8 @@ class WombatEnvironment(simpy.Environment):
         """
         valid_locations = ("site", "system", "port", "enroute", "na")
         if location not in valid_locations:
-            raise ValueError(
-                f"Event logging `location` must be one of: {valid_locations}"
-            )
+            msg = f"Event logging `location` must be one of: {valid_locations}"
+            raise ValueError(msg)
         total_labor_cost = hourly_labor_cost + salary_labor_cost
         total_cost = total_labor_cost + equipment_cost + materials_cost
         now = self.simulation_time

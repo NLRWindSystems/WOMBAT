@@ -525,9 +525,8 @@ class RepairManager(FilterStore):
             system.servicing_queue = self.env.event()
             self.invalid_systems.append(system.id)
         else:
-            raise RuntimeError(
-                f"{self.env.simulation_time} {system.id} already being serviced"
-            )
+            msg = f"{self.env.simulation_time} {system.id} already being serviced"
+            raise RuntimeError(msg)
         if tow:
             self.systems_in_tow.append(system.id)
             _ = self.systems_waiting_for_tow.pop(
@@ -577,9 +576,8 @@ class RepairManager(FilterStore):
             system.servicing = self.env.event()
             self.reset_subassembly_processes(system, subassembly_full_reset)
         else:
-            raise RuntimeError(
-                f"{self.env.simulation_time} {system.id} already being serviced"
-            )
+            msg = f"{self.env.simulation_time} {system.id} already being serviced"
+            raise RuntimeError(msg)
 
     def register_repair(self, repair: RepairRequest) -> Generator:
         """Registers the repair as complete with the repair managiner.
@@ -615,10 +613,11 @@ class RepairManager(FilterStore):
             Set to True if this is for a tow-to-port request.
         """
         if system.servicing.triggered:
-            raise RuntimeError(
+            msg = (
                 f"{self.env.simulation_time} Repairs were already completed"
                 f" at {system.id}"
             )
+            raise RuntimeError(msg)
         _ = self.invalid_systems.pop(self.invalid_systems.index(system.id))
         if tow:
             _ = self.systems_in_tow.pop(self.systems_in_tow.index(system.id))

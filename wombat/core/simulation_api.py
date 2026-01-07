@@ -270,10 +270,11 @@ class Simulation(FromDictMixin):
         if isinstance(value, Configuration):
             object.__setattr__(self, attribute.name, value)
         else:
-            raise TypeError(
+            msg = (
                 "``config`` must be a dictionary, valid file path to a yaml-enocoded",
                 "dictionary, or ``Configuration`` object!",
             )
+            raise TypeError(msg)
 
     @classmethod
     def from_config(
@@ -314,9 +315,8 @@ class Simulation(FromDictMixin):
         if isinstance(config, dict):
             config = Configuration.from_dict(config)
         if not isinstance(config, Configuration):
-            raise TypeError(
-                "``config`` must be a dictionary or ``Configuration`` object!"
-            )
+            msg = "``config`` must be a dictionary or ``Configuration`` object!"
+            raise TypeError(msg)
         if TYPE_CHECKING:
             assert isinstance(config, Configuration)  # mypy helper
         return cls(  # type: ignore
