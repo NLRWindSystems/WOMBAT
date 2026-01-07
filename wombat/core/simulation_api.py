@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 import datetime
 from copy import deepcopy
 from typing import TYPE_CHECKING
@@ -431,18 +432,21 @@ class Simulation(FromDictMixin):
             for service_equipment in tugboats:
                 name = service_equipment.name  # type: ignore
                 if name in self.service_equipment:
-                    raise ValueError(
+                    msg = (
                         f"Servicing equipment `{name}` already exists, please use"
                         " unique names for all servicing equipment."
                     )
+                    raise ValueError(msg)
                 self.service_equipment[name] = service_equipment  # type: ignore
 
-        if self.config.project_capacity * 1000 != round(self.windfarm.capacity, 6):
-            raise ValueError(
+        _project_capacity = self.config.project_capacity * 1000
+        if not math.isclose(_project_capacity, self.windfarm.capacity, abs_tol=1e-6):
+            msg = (
                 f"Input `project_capacity`: {self.config.project_capacity:,.6f} MW is"
                 f" not equal to the sum of turbine capacities:"
                 f" {self.windfarm.capacity / 1000:,.6f} MW"
             )
+            raise ValueError(msg)
 
     def run(
         self,
