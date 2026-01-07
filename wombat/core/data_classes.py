@@ -1871,10 +1871,11 @@ class ServiceEquipmentData(FromDictMixin):
                 self, "strategy", clean_string_input(self.data_dict["strategy"])
             )
         if self.strategy not in VALID_STRATEGIES:
-            raise ValueError(
+            msg = (
                 f"ServiceEquipment strategy should be one of {VALID_STRATEGIES};"
                 f" input: {self.strategy}."
             )
+            raise ValueError(msg)
 
     def determine_type(
         self,
