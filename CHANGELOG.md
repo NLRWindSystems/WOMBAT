@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v0.13.2 - 10 February 2026
+
+- Temporarily prohibit Pandas 3.0 to resolve failing tests and integrations.
+
 ## v0.13.1 - 7 January 2026
 
 - Updates the project capacity check for a true 6 decimal precision check.
