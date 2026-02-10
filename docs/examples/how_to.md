@@ -11,13 +11,13 @@ kernelspec:
 
 # How To Use WOMBAT
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/WISDEM/WOMBAT/main?filepath=examples)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/NLRWindSystems/WOMBAT/main?filepath=examples)
 
 This tutorial will walk through the setup, running, and results stages of a WOMBAT
 simulation while providing background information about how each component is related.
 
 A Jupyter notebook of this tutorial can be run from `examples/how_to.ipynb` locally, or
-through [binder](https://mybinder.org/v2/gh/WISDEM/WOMBAT/main?filepath=examples).
+through [binder](https://mybinder.org/v2/gh/NLRWindSystems/WOMBAT/main?filepath=examples).
 
 ## Imports
 
@@ -54,7 +54,7 @@ data must be placed in the appropriate locations in your analysis' library as fo
 
 ```{warning}
 As of v0.6, the following structure will be adopted to mirror the format of the
-[ORBIT library structure](https://github.com/WISDEM/ORBIT/blob/master/ORBIT/core/library.py#L7-L24)
+[ORBIT library structure](https://github.com/NLRWindSystems/ORBIT/blob/master/ORBIT/core/library.py#L7-L24)
 to increase compatibility between similar libraries.
 
 As of v0.9, the library structure shown below is the only one that will work.
@@ -526,7 +526,7 @@ The power curve input CSV requires the following two columns: `windspeed_ms` and
 produced at that wind speed, in kW. The current method available for generating the
 power curve is the IEC 61400-12-1-2 method for a wind-speed binned power curve. If there
 is a need/desire for additional power curve methodologies, then
-[please submit an issue on the GitHub](https://github.com/WISDEM/WOMBAT/issues)!
+[please submit an issue on the GitHub](https://github.com/NLRWindSystems/WOMBAT/issues)!
 
 For an open source listing of a variety of land-based, offshore, and distributed wind
 turbine power curves, please visit the
@@ -621,10 +621,10 @@ power_curve:
 
 The power curve input requires the efficiency polynomial curve fit coefficients, though
 it is highly recommended to use those included in the above example. For implementation
-details, please see the [utilities API documentation](https://wisdem.github.io/WOMBAT/API/utilities.html#wombat.utilities.utilities)
+details, please see the [utilities API documentation](https://nlrwindsystems.github.io/WOMBAT/API/utilities.html#wombat.utilities.utilities)
 
 If there is a need/desire for additional power curve methodologies, then
-[please submit an issue on the GitHub](https://github.com/WISDEM/WOMBAT/issues)!
+[please submit an issue on the GitHub](https://github.com/NLRWindSystems/WOMBAT/issues)!
 
 ## Set Up the Simulation
 

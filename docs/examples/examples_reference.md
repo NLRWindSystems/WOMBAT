@@ -1,7 +1,7 @@
 # Examples Reference
 
 This page will provide a brief overview of the varying examples available in the
-[examples folder on GitHub](https://github.com/WISDEM/WOMBAT/blob/main/examples).
+[examples folder on GitHub](https://github.com/NLRWindSystems/WOMBAT/blob/main/examples).
 
 ## `archival/`
 

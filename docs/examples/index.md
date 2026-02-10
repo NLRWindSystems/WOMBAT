@@ -175,14 +175,14 @@ modeling assumptions as well as the basic operations of the maintenance and fail
 
 ## Examples and Validation Work
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/WISDEM/WOMBAT/main?filepath=examples)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/NLRWindSystems/WOMBAT/main?filepath=examples)
 
 Below are a few examples to get started, for users interested in the validation work in
 the [code-to-code comparison presentations](presentations:code-comparison),
-the notebooks generating [the most up-to-date results can be found in the main repository](https://github.com/WISDEM/WOMBAT/examples/), where there is a separate analysis
+the notebooks generating [the most up-to-date results can be found in the main repository](https://github.com/NLRWindSystems/WOMBAT/examples/), where there is a separate analysis
 for the
-[{cite:t}`dinwoodie2015reference` comparison](https://github.com/WISDEM/WOMBAT/blob/main/examples/dinwoodie_validation.ipynb),
-and for the [{cite:t}`smart2016iea` comparison](https://github.com/WISDEM/blob/main/WOMBAT/examples/iea_26_validation.ipynb).
+[{cite:t}`dinwoodie2015reference` comparison](https://github.com/NLRWindSystems/WOMBAT/blob/main/examples/dinwoodie_validation.ipynb),
+and for the [{cite:t}`smart2016iea` comparison](https://github.com/NLRWindSystems/blob/main/WOMBAT/examples/iea_26_validation.ipynb).
 
 <!-- ```{include} ../../library/default/README.md``` -->
 

@@ -5,9 +5,9 @@
 [![PyPI Version](https://badge.fury.io/py/wombat.svg)](https://badge.fury.io/py/wombat)
 [![PyPI downloads](https://img.shields.io/pypi/dm/wombat?link=https%3A%2F%2Fpypi.org%2Fproject%2FWOMBAT%2F)](https://pypi.org/project/WOMBAT/)
 
-[![codecov](https://codecov.io/gh/WISDEM/WOMBAT/branch/main/graph/badge.svg?token=SK9M10BZXY)](https://codecov.io/gh/WISDEM/WOMBAT)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/WISDEM/WOMBAT/main?filepath=examples)
-[![Documentation site](https://jupyterbook.org/badge.svg)](https://wisdem.github.io/WOMBAT)
+[![codecov](https://codecov.io/gh/NLRWindSystems/WOMBAT/branch/main/graph/badge.svg?token=SK9M10BZXY)](https://codecov.io/gh/NLRWindSystems/WOMBAT)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/NLRWindSystems/WOMBAT/main?filepath=examples)
+[![Documentation site](https://jupyterbook.org/badge.svg)](https://nlrwindsystems.github.io/WOMBAT)
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![Black formatter](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -48,8 +48,8 @@ rob.hammond@nrel.gov.
 Please see the CHANGELOG, linked below for complete information, and the appropriate
 documentation pages for specific details.
 
-* On this site: https://wisdem.github.io/WOMBAT/changelog.html
-* On GitHub: https://github.com/WISDEM/WOMBAT/blob/main/CHANGELOG.md
+* On this site: https://nlrwindsystems.github.io/WOMBAT/changelog.html
+* On GitHub: https://github.com/NLRWindSystems/WOMBAT/blob/main/CHANGELOG.md
 
 Below is a shortlist of some of the most impactful changes made in recent versions.
 
@@ -76,7 +76,7 @@ As of v0.10, a series of convenience features and consistency updates have been 
 * A breaking change to failure data has been made by using lists instead of dictionaries
   in the configuration of cables, turbines, and substations. To ease adoption, a
   function has been provided to convert to the new format:
-  https://wisdem.github.io/WOMBAT/API/utilities.html#importing-and-converting-from-old-versions.
+  https://nlrwindsystems.github.io/WOMBAT/API/utilities.html#importing-and-converting-from-old-versions.
 * Single configuration files are now supported for all non-CSV data. This means that
   servicing equipment, cables, turbines, and substations can all be included in the
   primary configuration file.
@@ -151,8 +151,8 @@ lifecycle of a single failure.
 ## License
 
 Notice on the NREL application of the Apache-2 license, also found on the
-[GitHub](https://github.com/WISDEM/WOMBAT/blob/main/NOTICE), along with the
-complete [license](https://github.com/WISDEM/WOMBAT/blob/main/LICENSE) details.
+[GitHub](https://github.com/NLRWindSystems/WOMBAT/blob/main/NOTICE), along with the
+complete [license](https://github.com/NLRWindSystems/WOMBAT/blob/main/LICENSE) details.
 
 ```{include} ../NOTICE
 ```

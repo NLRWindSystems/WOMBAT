@@ -4,7 +4,7 @@
 ## Getting Started
 
 These contributing guidelines should be read by software developers wishing to contribute code or
-documentation changes into WOMBAT, or to push changes upstream to the main WISDEM/WOMBAT repository.
+documentation changes into WOMBAT, or to push changes upstream to the main NLRWindSystems/WOMBAT repository.
 
 1. Create a fork of WOMBAT on GitHub
 2. Clone your fork of the repository
@@ -36,7 +36,7 @@ documentation changes into WOMBAT, or to push changes upstream to the main WISDE
    pre-commit install
    ```
 
-## Keeping your fork in sync with WISDEM/WOMBAT
+## Keeping your fork in sync with NLRWindSystems/WOMBAT
 
 The "main" WOMBAT repository is regularly updated with ongoing research at NREL and beyond. After
 creating and cloning your fork from the previous section, you might be wondering how to keep it
@@ -53,14 +53,14 @@ inevitably arise in development work.
    cd /your/path/to/WOMBAT/
    ```
 
-2. If you haven't already, add WISDEM/WOMBAT as the "upstream" location (or whichever naming
+2. If you haven't already, add NLRWindSystems/WOMBAT as the "upstream" location (or whichever naming
    convention you prefer).
 
    ```bash
-   git remote add upstream https://github.com/WISDEM/WOMBAT.git
+   git remote add upstream https://github.com/NLRWindSystems/WOMBAT.git
    ```
 
-   To find the name you've given WISDEM/WOMBAT again, you can simply run the following to display
+   To find the name you've given NLRWindSystems/WOMBAT again, you can simply run the following to display
    all the remote sources you're tracking.
 
    ```bash
@@ -73,7 +73,7 @@ inevitably arise in development work.
    git fetch --all
    ```
 
-4. Sync the upstream (WISDEM) changes
+4. Sync the upstream (NLRWindSystems) changes
 
    ```bash
    # If there was a new release this will need to be updated
@@ -96,7 +96,7 @@ inevitably arise in development work.
 ## Issue Tracking
 
 New feature requests, changes, enhancements, non-methodology features, and bug reports can be filed
-as new issues in the [Github.com issue tracker](https://github.com/WISDEM/WOMBAT/issues) at any time.
+as new issues in the [Github.com issue tracker](https://github.com/NLRWindSystems/WOMBAT/issues) at any time.
 Please be sure to fully describe the issue.
 
 For other issues, please email rob.hammond@nrel.gov.
@@ -119,7 +119,7 @@ For other issues, please email rob.hammond@nrel.gov.
 
 ## Repository
 
-The WOMBAT repository is hosted on Github, and located here: http://github.com/WISDEM/WOMBAT
+The WOMBAT repository is hosted on Github, and located here: http://github.com/NLRWindSystems/WOMBAT
 
 This repository is organized using a modified git-flow system. Branches are organized as follows:
 
@@ -136,8 +136,8 @@ Work out of this feature branch before submitting a pull request.
 Be sure to periodically synchronize the upstream develop branch into your feature branch to avoid
 conflicts in the pull request.
 
-When your branch is ready, make a pull request to WISDEM/WOMBAT through the
-[GitHub web interface](https://github.com/WISDEM/WOMBATpulls).
+When your branch is ready, make a pull request to NLRWindSystems/WOMBAT through the
+[GitHub web interface](https://github.com/NLRWindSystems/WOMBATpulls).
 
 ## Coding Style
 

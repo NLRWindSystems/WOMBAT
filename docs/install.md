@@ -43,7 +43,7 @@ using the `pip install -e '.[dev]'` prompt in the next section
 ```
 
 ```bash
-git clone https://github.com/WISDEM/WOMBAT.git
+git clone https://github.com/NLRWindSystems/WOMBAT.git
 cd WOMBAT
 pip install .
 ```
@@ -56,7 +56,7 @@ provided through the pre-commit framework, and any contributors should have this
 functionality run and pass before submitting pull requests.
 
 ```bash
-git clone https://github.com/WISDEM/WOMBAT.git
+git clone https://github.com/NLRWindSystems/WOMBAT.git
 cd WOMBAT
 pip install -e '.[dev]'  # some users may need double quotes here, not single quotes
 # Required for automatic code formatting!
@@ -84,7 +84,7 @@ site locally, the following prompt with will install the required documentation 
 packages.
 
 ```bash
-git clone https://github.com/WISDEM/WOMBAT.git
+git clone https://github.com/NLRWindSystems/WOMBAT.git
 cd WOMBAT
 pip install -e '.[docs]'
 ```

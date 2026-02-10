@@ -21,9 +21,9 @@ the COREWIND publications more easily.
 
 - The slides can be found [here](https://www.nrel.gov/docs/fy24osti/87913.pdf)
 - The accompanying example notebook is
-  [here](https://github.com/WISDEM/WOMBAT/blob/main/examples/NAWEA_interactive_walkthrough.ipynb).
+  [here](https://github.com/NLRWindSystems/WOMBAT/blob/main/examples/NAWEA_interactive_walkthrough.ipynb).
 - Example dataset for the Morro Bay, California, USA 9D layout with connected
-  substations is [here](https://github.com/WISDEM/WOMBAT/blob/main/library/corewind/).
+  substations is [here](https://github.com/NLRWindSystems/WOMBAT/blob/main/library/corewind/).
 
 ## Pre-Workshop Setup
 
@@ -37,7 +37,7 @@ the COREWIND publications more easily.
 2. Download WOMBAT from GitHub
 
    ```bash
-   git clone https://github.com/WISDEM/WOMBAT.git
+   git clone https://github.com/NLRWindSystems/WOMBAT.git
    ```
 
 3. Install WOMBAT as an editable package

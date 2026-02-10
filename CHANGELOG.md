@@ -3,6 +3,8 @@
 ## v0.13.2 - 10 February 2026
 
 - Temporarily prohibit Pandas 3.0 to resolve failing tests and integrations.
+- Update all instances of WISDEM -> NLRWindSystems with proper casing after the GitHub
+  organization's name change.
 
 ## v0.13.1 - 7 January 2026
 
@@ -14,15 +16,15 @@
 ### Default Data Now Available
 
 - For complete details, please see the
-  [default data section of the user guide](https://wisdem.github.io/WOMBAT/examples/index.html#default-data)
+  [default data section of the user guide](https://nlrwindsystems.github.io/WOMBAT/examples/index.html#default-data)
 - `"default"` library is now made available with a validated fixed and floating offshore wind reference
   case based on the 2025 Cost of Wind Energy Review (COWER), and an experimental land-based
   reference data set based on a variety of incomplete sources in onshore O&M studies.
 - A new example
-  ([examples/default_data_demonstration.ipynb](https://github.com/WISDEM/WOMBAT/blob/develop/examples/default_data_demonstration.ipynb))
+  ([examples/default_data_demonstration.ipynb](https://github.com/NLRWindSystems/WOMBAT/blob/develop/examples/default_data_demonstration.ipynb))
   is available to see key statistics of each scenario.
 - A new example
-  ([examples/COWER_om_workflow.ipynb](https://github.com/WISDEM/WOMBAT/blob/develop/examples/COWER_om_workflow.ipynb))
+  ([examples/COWER_om_workflow.ipynb](https://github.com/NLRWindSystems/WOMBAT/blob/develop/examples/COWER_om_workflow.ipynb))
   is available to reproduce the current year's offshore COWER results.
 
 ### Tow-To-Port Improvements
@@ -387,7 +389,7 @@ cables:
   dictionaries. Users can use the following function to update their cable, turbine,
   substation, and consolidated configurations:
   `wombat/core/library.py::convert_failure_data` Documentation is available at
-  https://wisdem.github.io/WOMBAT/API/utilities.html#importing-and-converting-from-old-versions.
+  https://nlrwindsystems.github.io/WOMBAT/API/utilities.html#importing-and-converting-from-old-versions.
 - Updates the minimum Python version to 3.10.
 - The wind farm operation level calculation was moved to `wombat/utilities/utilities.py`
   so it can be reused when `Metrics` loads the operational data.
