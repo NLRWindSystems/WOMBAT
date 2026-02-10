@@ -1,6 +1,6 @@
 # Team
 
-All members are assumed NREL employees, unless otherwise noted.
+All members are assumed NLR employees, unless otherwise noted.
 
 ## Software
 

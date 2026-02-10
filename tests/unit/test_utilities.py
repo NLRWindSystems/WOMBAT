@@ -116,9 +116,9 @@ def test_format_events_log_message():
 def test_IEC_power_curve():
     """Tests `IEC_power_curve`."""
     # tests are built from the same as OpenOA
-    # power curve source: https://github.com/NREL/turbine-models/blob/master/Offshore/2020ATB_NREL_Reference_15MW_240.csv
-    nrel_15mw_wind = np.arange(4, 26)
-    nrel_15mw_power = np.array(
+    # power curve source: https://github.com/NLR/turbine-models/blob/master/Offshore/2020ATB_NLR_Reference_15MW_240.csv
+    nlr_15mw_wind = np.arange(4, 26)
+    nlr_15mw_power = np.array(
         [
             720,
             1239,
@@ -148,8 +148,8 @@ def test_IEC_power_curve():
     cut_in = 4
     cut_out = 25
     curve = IEC_power_curve(
-        nrel_15mw_wind,
-        nrel_15mw_power,
+        nlr_15mw_wind,
+        nlr_15mw_power,
         windspeed_start=cut_in,
         windspeed_end=cut_out,
         bin_width=1,
@@ -167,7 +167,7 @@ def test_IEC_power_curve():
 
     # Test all the valid windspeeds are equal
     valid_power = test_power[(test_windspeeds >= cut_in) & (test_windspeeds <= cut_out)]
-    nptest.assert_array_equal(nrel_15mw_power, valid_power)
+    nptest.assert_array_equal(nlr_15mw_power, valid_power)
 
 
 def test_calculate_hydrogen_production():

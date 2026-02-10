@@ -13,7 +13,7 @@ kernelspec:
 (metrics-demo)=
 # Demonstration of the Available Metrics
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/WISDEM/WOMBAT/main?filepath=examples)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/NLRWindSystems/WOMBAT/main?filepath=examples)
 
 For a complete list of metrics and their documentation, please see the API Metrics
 [documentation](simulation-api:metrics).
@@ -24,7 +24,7 @@ depending on what inputs are provided.
 
 A Jupyter notebook of this tutorial can be run from
 `examples/metrics_demonstration.ipynb` locally, or through
-[binder](https://mybinder.org/v2/gh/WISDEM/WOMBAT/main?filepath=examples).
+[binder](https://mybinder.org/v2/gh/NLRWindSystems/WOMBAT/main?filepath=examples).
 
 ```{code-cell} ipython3
 :tags: ["output_scroll"]
@@ -55,7 +55,7 @@ Below is a list of top-level sections to demonstrate how to use WOMBAT's `Metric
 class methods and an explanation of each individual metric.
 
 If you don't see a metric or result computation that is core to your work, please submit
-an [issue](https://github.com/WISDEM/WOMBAT/issues/new) with details on what the metric
+an [issue](https://github.com/NLRWindSystems/WOMBAT/issues/new) with details on what the metric
 is, and how it should be computed.
 
 - [Setup](metrics-demo:setup): Running a simulation to gather the results

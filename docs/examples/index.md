@@ -7,7 +7,7 @@ demonstrated through example notebooks. To fully follow the particulars of each 
 it is recommended to see how each model's configuration files are composed.
 
 For thorough explanations of the design and implementation ethos of the model, please
-see our NREL Technical Report: https://www.osti.gov/biblio/1894867 {cite}`osti_1894867`,
+see our NLR Technical Report: https://www.osti.gov/biblio/1894867 {cite}`osti_1894867`,
 which was published alongside v0.5.1, so some functionality has been updated.
 
 ## Feature Overview
@@ -175,14 +175,14 @@ modeling assumptions as well as the basic operations of the maintenance and fail
 
 ## Examples and Validation Work
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/WISDEM/WOMBAT/main?filepath=examples)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/NLRWindSystems/WOMBAT/main?filepath=examples)
 
 Below are a few examples to get started, for users interested in the validation work in
 the [code-to-code comparison presentations](presentations:code-comparison),
-the notebooks generating [the most up-to-date results can be found in the main repository](https://github.com/WISDEM/WOMBAT/examples/), where there is a separate analysis
+the notebooks generating [the most up-to-date results can be found in the main repository](https://github.com/NLRWindSystems/WOMBAT/examples/), where there is a separate analysis
 for the
-[{cite:t}`dinwoodie2015reference` comparison](https://github.com/WISDEM/WOMBAT/blob/main/examples/dinwoodie_validation.ipynb),
-and for the [{cite:t}`smart2016iea` comparison](https://github.com/WISDEM/blob/main/WOMBAT/examples/iea_26_validation.ipynb).
+[{cite:t}`dinwoodie2015reference` comparison](https://github.com/NLRWindSystems/WOMBAT/blob/main/examples/dinwoodie_validation.ipynb),
+and for the [{cite:t}`smart2016iea` comparison](https://github.com/NLRWindSystems/blob/main/WOMBAT/examples/iea_26_validation.ipynb).
 
 <!-- ```{include} ../../library/default/README.md``` -->
 
@@ -209,7 +209,7 @@ floating offshore wind cases.
 
 Unlike other datasets in this repository, which largely reflect publicly available sources, this
 dataset incorporates **internal adjustments and harmonizations** to align with research-focused
-scenarios for NREL products that may require outputs to be in 2024 USD, like for example, the Annual
+scenarios for NLR products that may require outputs to be in 2024 USD, like for example, the Annual
 Technology Baseline, or the Cost of Wind Energy Review.
 
 #### Land-Based
@@ -226,7 +226,7 @@ Material costs for repairs and replacements, as well as failure data, are source
 {cite:t}`corewind_d61_2020, corewind_d42_2021`. Fixed cost data is primarily derived from
 {cite:t}`bvg_guide_2023, bvg_guide_2025`, while vessel day rate and mobilization assumptions are
 compiled from a range of public sources. For detailed reference information, please contact Daniel
-Mulas Hernando (Daniel.MulasHernando@nrel.gov) to request access to WOMBAT_cost_history.xlsx.
+Mulas Hernando (Daniel.MulasHernando@nlr.gov) to request access to WOMBAT_cost_history.xlsx.
 
 - **Cost Year:** All monetary values are standardized to **2024 USD**.
 - **Data Integration:** Inputs were consolidated from multiple public sources and internal records (`WOMBAT_cost_history.xlsx`), with historical exchange rates and inflation applied to transform costs to 2024 USD.
@@ -261,7 +261,7 @@ The accompanying notebook, **`examples/COWER_om_workflow.ipynb`**, demonstrates 
 
 #### Notes
 
-- `WOMBAT_cost_history.xlsx` is an internal NREL document. For questions, contact **Daniel.MulasHernando@nrel.gov**.
+- `WOMBAT_cost_history.xlsx` is an internal NLR document. For questions, contact **Daniel.MulasHernando@nlr.gov**.
 - This dataset should be treated as a **scenario-based reference**, not as purely empirical or historical data.
 
 ## References

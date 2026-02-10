@@ -35,7 +35,7 @@ bibliography:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/WISDEM/WOMBAT
+  url: https://github.com/NLRWindSystems/WOMBAT
   path_to_book: docs  # Optional path to your book, relative to the repository root
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
@@ -88,7 +88,7 @@ sphinx:
       icon_links: [
         {
             name: GitHub,
-            url: "https://github.com/WISDEM/WOMBAT",
+            url: "https://github.com/NLRWindSystems/WOMBAT",
             icon: fa-brands fa-github,
         },
         {
@@ -99,7 +99,7 @@ sphinx:
         },
         {
             name: Launch Binder,
-            url: "https://mybinder.org/v2/gh/WISDEM/WOMBAT/main?filepath=examples",
+            url: "https://mybinder.org/v2/gh/NLRWindSystems/WOMBAT/main?filepath=examples",
             icon: "https://mybinder.org/badge_logo.svg",
             type: url,
         },

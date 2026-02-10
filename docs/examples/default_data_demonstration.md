@@ -12,7 +12,7 @@ kernelspec:
 
 # Default Data Demonstration
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/WISDEM/WOMBAT/main?filepath=examples)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/NLRWindSystems/WOMBAT/main?filepath=examples)
 
 In this example, we'll show what each of the reference plants look like and what results they yield when simulated.
 

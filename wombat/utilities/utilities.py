@@ -66,7 +66,7 @@ def IEC_power_curve(
     windspeed_end: float = 30.0,
 ) -> Callable:
     """Direct copyfrom OpenOA:
-    https://github.com/NREL/OpenOA/blob/main/operational_analysis/toolkits/power_curve/functions.py#L16-L57
+    https://github.com/NLR/OpenOA/blob/main/operational_analysis/toolkits/power_curve/functions.py#L16-L57
     Use IEC 61400-12-1-2 method for creating wind-speed binned power curve.
 
     Parameters
@@ -135,7 +135,7 @@ def calculate_stack_current(
 ) -> np.ndarray | pd.Series:
     """Convert power produced, in kW to current, in amperes (I) using the efficiency
     curve from the
-    `H2Integrage PEM electrolysis model <https://github.com/NREL/H2Integrate/blob/main/h2integrate/simulation/technologies/hydrogen/electrolysis/PEM_H2_LT_electrolyzer_Clusters.py>`_.
+    `H2Integrage PEM electrolysis model <https://github.com/NLR/H2Integrate/blob/main/h2integrate/simulation/technologies/hydrogen/electrolysis/PEM_H2_LT_electrolyzer_Clusters.py>`_.
 
     .. math::
         i_{stack} = p1 * power^{3} + p2 * power^{2} + p3 * power + p4 * power^{1/2} + p5

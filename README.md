@@ -2,10 +2,11 @@
 
 [![DOI 10.2172/1894867](https://img.shields.io/badge/DOI-10.2172%2F1894867-brightgreen?link=https://doi.org/10.2172/1894867)](https://www.osti.gov/biblio/1894867)
 [![PyPI version](https://badge.fury.io/py/wombat.svg)](https://badge.fury.io/py/wombat)
-[![codecov](https://codecov.io/gh/WISDEM/WOMBAT/branch/main/graph/badge.svg?token=SK9M10BZXY)](https://codecov.io/gh/WISDEM/WOMBAT)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/wombat)
+[![codecov](https://codecov.io/gh/NLRWindSystems/WOMBAT/branch/main/graph/badge.svg?token=SK9M10BZXY)](https://codecov.io/gh/NLRWindSystems/WOMBAT)
 [![Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/WISDEM/WOMBAT/main?filepath=examples)
-[![Jupyter Book](https://jupyterbook.org/badge.svg)](https://wisdem.github.io/WOMBAT)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/NLRWindSystems/WOMBAT/main?filepath=examples)
+[![Jupyter Book](https://jupyterbook.org/badge.svg)](https://nlrwindsystems.github.io/WOMBAT)
 
 [![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -26,7 +27,7 @@ With that said, it would be greatly appreciated for issues or PRs to be submitte
 any improvements at all, from fixing typos (guaranteed to be a few) to features to
 testing.
 
-If you use this library please cite our NREL Technical Report:
+If you use this library please cite our NLR Technical Report:
 
 ```bibtex
    @techreport{hammond2022wombat,
@@ -44,11 +45,11 @@ If you use this library please cite our NREL Technical Report:
 
 ## Part of the WETO Stack
 
-WOMBAT is primarily developed with the support of the U.S. Department of Energy and is part of the [WETO Software Stack](https://nrel.github.io/WETOStack). For more information and other integrated modeling software, see:
-- [Portfolio Overview](https://nrel.github.io/WETOStack/portfolio_analysis/overview.html)
-- [Entry Guide](https://nrel.github.io/WETOStack/_static/entry_guide/index.html)
-- [Techno-Economic Modeling Workshop](https://nrel.github.io/WETOStack/workshops/user_workshops_2024.html#tea-and-cost-modeling)
-- [Systems Engineering Workshop](https://nrel.github.io/WETOStack/workshops/user_workshops_2024.html#systems-engineering)
+WOMBAT is primarily developed with the support of the U.S. Department of Energy and is part of the [WETO Software Stack](https://nlr.github.io/WETOStack). For more information and other integrated modeling software, see:
+- [Portfolio Overview](https://nlr.github.io/WETOStack/portfolio_analysis/overview.html)
+- [Entry Guide](https://nlr.github.io/WETOStack/_static/entry_guide/index.html)
+- [Techno-Economic Modeling Workshop](https://nlr.github.io/WETOStack/workshops/user_workshops_2024.html#tea-and-cost-modeling)
+- [Systems Engineering Workshop](https://nlr.github.io/WETOStack/workshops/user_workshops_2024.html#systems-engineering)
 
 ## WOMBAT in Action
 
@@ -61,10 +62,10 @@ folder, but here are a few highlights:
 > features to better specify how repairs are managed.
 
 * Dinwoodie, et al. replication for `wombat` can be found in the
-  `examples folder <https://github.com/WISDEM/WOMBAT/blob/main/examples/dinwoodie_validation.ipynb>`_.
+  `examples folder <https://github.com/NLRWindSystems/WOMBAT/blob/main/examples/dinwoodie_validation.ipynb>`_.
 * IEA Task 26
-  `validation exercise  <https://github.com/WISDEM/WOMBAT/blob/main/examples/iea_26_validation.ipynb>`_.
-* Presentations: `slides  <https://github.com/WISDEM/WOMBAT/blob/main/presentation_material/>`_.
+  `validation exercise  <https://github.com/NLRWindSystems/WOMBAT/blob/main/examples/iea_26_validation.ipynb>`_.
+* Presentations: `slides  <https://github.com/NLRWindSystems/WOMBAT/blob/main/presentation_material/>`_.
 
 ## Setup
 
@@ -115,7 +116,7 @@ code, and/or contribute back to the project.
 Install it directly into an activated virtual environment:
 
 ```console
-git clone https://github.com/WISDEM/WOMBAT.git
+git clone https://github.com/NLRWindSystems/WOMBAT.git
 cd WOMBAT
 pip install .
 ```
@@ -130,7 +131,7 @@ import wombat
 wombat.__version__
 ```
 
-For further usage, please see the documentation site at https://wisdem.github.io/WOMBAT.
+For further usage, please see the documentation site at https://nlrwindsystems.github.io/WOMBAT.
 
 ### Requirements for Contributing to WOMBAT
 
@@ -140,10 +141,10 @@ Code contributors should note that there is both an additional dependency suite 
 running the tests and enabling the pre-commit workflow to automatically standardize the
 core code formatting principles. In short, the following steps should be taken, but be
 sure to read the
-[contributor's guide](https://wisdem.github.io/WOMBAT/contributing.html)
+[contributor's guide](https://nlrwindsystems.github.io/WOMBAT/contributing.html)
 
 ```console
-git clone https://github.com/WISDEM/WOMBAT.git
+git clone https://github.com/NLRWindSystems/WOMBAT.git
 cd wombat
 
 # Install the additional dependencies for running the tests and automatic code formatting
@@ -182,7 +183,7 @@ Basic pre-commit issues that users might encounter and their remedies:
 #### Documentation Contributions
 
 ```console
-git clone https://github.com/WISDEM/WOMBAT.git
+git clone https://github.com/NLRWindSystems/WOMBAT.git
 cd WOMBAT
 pip install -e '.[docs]'
 ```
@@ -203,7 +204,7 @@ View the results: `docs/_build/html/index.html`
 #### Code and Documentation Contributions
 
 ```console
-git clone https://github.com/WISDEM/WOMBAT.git
+git clone https://github.com/NLRWindSystems/WOMBAT.git
 cd wombat
 pip install -e '.[all]'
 ```

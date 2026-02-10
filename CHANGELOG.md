@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v0.13.2 - 10 February 2026
+
+- Temporarily prohibit Pandas 3.0 to resolve failing tests and integrations.
+- Update all instances of WISDEM -> NLRWindSystems with proper casing after the GitHub
+  organization's name change.
+- Update all instances of NREL -> NLR (National Laboratory of the Rockies) after
+  official name change, except for past literature citations.
+
 ## v0.13.1 - 7 January 2026
 
 - Updates the project capacity check for a true 6 decimal precision check.
@@ -10,15 +18,15 @@
 ### Default Data Now Available
 
 - For complete details, please see the
-  [default data section of the user guide](https://wisdem.github.io/WOMBAT/examples/index.html#default-data)
+  [default data section of the user guide](https://nlrwindsystems.github.io/WOMBAT/examples/index.html#default-data)
 - `"default"` library is now made available with a validated fixed and floating offshore wind reference
   case based on the 2025 Cost of Wind Energy Review (COWER), and an experimental land-based
   reference data set based on a variety of incomplete sources in onshore O&M studies.
 - A new example
-  ([examples/default_data_demonstration.ipynb](https://github.com/WISDEM/WOMBAT/blob/develop/examples/default_data_demonstration.ipynb))
+  ([examples/default_data_demonstration.ipynb](https://github.com/NLRWindSystems/WOMBAT/blob/develop/examples/default_data_demonstration.ipynb))
   is available to see key statistics of each scenario.
 - A new example
-  ([examples/COWER_om_workflow.ipynb](https://github.com/WISDEM/WOMBAT/blob/develop/examples/COWER_om_workflow.ipynb))
+  ([examples/COWER_om_workflow.ipynb](https://github.com/NLRWindSystems/WOMBAT/blob/develop/examples/COWER_om_workflow.ipynb))
   is available to reproduce the current year's offshore COWER results.
 
 ### Tow-To-Port Improvements
@@ -166,7 +174,7 @@
     - `power_curve`: Includes variables `p1`, `p2`, `p3`, `p4`, `p5`, `FE` (Faradaic
       efficiency), `n_cells` (per stack), and `turndown_ratio`.
   - The production curve is based on the
-    [H2Integrate PEM electrolysis module](https://github.com/NREL/H2Integrate/blob/main/h2integrate/simulation/technologies/hydrogen/electrolysis/PEM_H2_LT_electrolyzer_Clusters.py).
+    [H2Integrate PEM electrolysis module](https://github.com/NLR/H2Integrate/blob/main/h2integrate/simulation/technologies/hydrogen/electrolysis/PEM_H2_LT_electrolyzer_Clusters.py).
   - Electrolyzer downtime does not impact farm activities as it is assumed energy will
     still flow through the export system to some other entity such as the grid.
   - All stacks are currently modeled as a single entity.
@@ -383,7 +391,7 @@ cables:
   dictionaries. Users can use the following function to update their cable, turbine,
   substation, and consolidated configurations:
   `wombat/core/library.py::convert_failure_data` Documentation is available at
-  https://wisdem.github.io/WOMBAT/API/utilities.html#importing-and-converting-from-old-versions.
+  https://nlrwindsystems.github.io/WOMBAT/API/utilities.html#importing-and-converting-from-old-versions.
 - Updates the minimum Python version to 3.10.
 - The wind farm operation level calculation was moved to `wombat/utilities/utilities.py`
   so it can be reused when `Metrics` loads the operational data.
@@ -532,7 +540,7 @@ cables:
 
 - Replace Flake8 and Pylint in the pre-commit workflow with ruff, and fix/ignore the resulting errors as appropriate
 - Features:
-  - Weather data now has the ability to contain more than just the required "windspeed" and "waveheight" columns. This will allow for easier expansion of the weather model in the future, and increase compatibility with other NREL techno economic modeling frameworks.
+  - Weather data now has the ability to contain more than just the required "windspeed" and "waveheight" columns. This will allow for easier expansion of the weather model in the future, and increase compatibility with other NLR techno economic modeling frameworks.
 - Bug fixes:
   - Maintenance and failure simulation process interruptions were occuring prior to starting the process timing, and causing simulation failures.
   - Duplicated parameters were being processed in `WombatEnvironment.log_action` stemming from improper handling of varying parameters in some of the more complex control flow logic in *in situ* repairs.
