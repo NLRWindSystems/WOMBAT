@@ -5,6 +5,8 @@
 - Temporarily prohibit Pandas 3.0 to resolve failing tests and integrations.
 - Update all instances of WISDEM -> NLRWindSystems with proper casing after the GitHub
   organization's name change.
+- Update all instances of NREL -> NLR (National Laboratory of the Rockies) after
+  official name change, except for past literature citations.
 
 ## v0.13.1 - 7 January 2026
 
@@ -172,7 +174,7 @@
     - `power_curve`: Includes variables `p1`, `p2`, `p3`, `p4`, `p5`, `FE` (Faradaic
       efficiency), `n_cells` (per stack), and `turndown_ratio`.
   - The production curve is based on the
-    [H2Integrate PEM electrolysis module](https://github.com/NREL/H2Integrate/blob/main/h2integrate/simulation/technologies/hydrogen/electrolysis/PEM_H2_LT_electrolyzer_Clusters.py).
+    [H2Integrate PEM electrolysis module](https://github.com/NLR/H2Integrate/blob/main/h2integrate/simulation/technologies/hydrogen/electrolysis/PEM_H2_LT_electrolyzer_Clusters.py).
   - Electrolyzer downtime does not impact farm activities as it is assumed energy will
     still flow through the export system to some other entity such as the grid.
   - All stacks are currently modeled as a single entity.
@@ -538,7 +540,7 @@ cables:
 
 - Replace Flake8 and Pylint in the pre-commit workflow with ruff, and fix/ignore the resulting errors as appropriate
 - Features:
-  - Weather data now has the ability to contain more than just the required "windspeed" and "waveheight" columns. This will allow for easier expansion of the weather model in the future, and increase compatibility with other NREL techno economic modeling frameworks.
+  - Weather data now has the ability to contain more than just the required "windspeed" and "waveheight" columns. This will allow for easier expansion of the weather model in the future, and increase compatibility with other NLR techno economic modeling frameworks.
 - Bug fixes:
   - Maintenance and failure simulation process interruptions were occuring prior to starting the process timing, and causing simulation failures.
   - Duplicated parameters were being processed in `WombatEnvironment.log_action` stemming from improper handling of varying parameters in some of the more complex control flow logic in *in situ* repairs.

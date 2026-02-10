@@ -19,7 +19,7 @@ content are all included in the slides with links to the appropriate documentati
 and the relevant screenshots so that participants can track down the required data in
 the COREWIND publications more easily.
 
-- The slides can be found [here](https://www.nrel.gov/docs/fy24osti/87913.pdf)
+- The slides can be found [here](https://www.nlr.gov/docs/fy24osti/87913.pdf)
 - The accompanying example notebook is
   [here](https://github.com/NLRWindSystems/WOMBAT/blob/main/examples/NAWEA_interactive_walkthrough.ipynb).
 - Example dataset for the Morro Bay, California, USA 9D layout with connected

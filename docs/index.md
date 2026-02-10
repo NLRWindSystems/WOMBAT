@@ -20,7 +20,7 @@ for the wind farm lifecycle research community. Specifically, WOMBAT is meant to
 a what-if, or scenario-based, simulation tool, so that you can model the trade-offs in
 decision-making for the operations and maintenance phase of a wind farm.
 
-As a supplement to this documentation site, there is also an NREL Technical Report that
+As a supplement to this documentation site, there is also an NLR Technical Report that
 goes through much of the design and implementation details available at:
 https://www.osti.gov/biblio/1894867. If you use this software, please cite it using the
 following BibTeX information, or in commonly used citation formats
@@ -41,7 +41,7 @@ following BibTeX information, or in commonly used citation formats
 ```
 
 For any questions, feel free to open up an issue in the repository or email:
-rob.hammond@nrel.gov.
+rob.hammond@nlr.gov.
 
 ## Latest Changes?
 
@@ -86,11 +86,11 @@ As of v0.10, a series of convenience features and consistency updates have been 
 
 ## Part of the WETO Stack
 
-WOMBAT is primarily developed with the support of the U.S. Department of Energy and is part of the [WETO Software Stack](https://nrel.github.io/WETOStack). For more information and other integrated modeling software, see:
-* [Portfolio Overview](https://nrel.github.io/WETOStack/portfolio_analysis/overview.html)
-* [Entry Guide](https://nrel.github.io/WETOStack/_static/entry_guide/index.html)
-* [Techno-Economic Modeling Workshop](https://nrel.github.io/WETOStack/workshops/user_workshops_2024.html#tea-and-cost-modeling)
-* [Systems Engineering Workshop](https://nrel.github.io/WETOStack/workshops/user_workshops_2024.html#systems-engineering)
+WOMBAT is primarily developed with the support of the U.S. Department of Energy and is part of the [WETO Software Stack](https://nlr.github.io/WETOStack). For more information and other integrated modeling software, see:
+* [Portfolio Overview](https://nlr.github.io/WETOStack/portfolio_analysis/overview.html)
+* [Entry Guide](https://nlr.github.io/WETOStack/_static/entry_guide/index.html)
+* [Techno-Economic Modeling Workshop](https://nlr.github.io/WETOStack/workshops/user_workshops_2024.html#tea-and-cost-modeling)
+* [Systems Engineering Workshop](https://nlr.github.io/WETOStack/workshops/user_workshops_2024.html#systems-engineering)
 
 ## The Model in 30 Seconds Or Less
 
@@ -150,7 +150,7 @@ lifecycle of a single failure.
 
 ## License
 
-Notice on the NREL application of the Apache-2 license, also found on the
+Notice on the NLR application of the Apache-2 license, also found on the
 [GitHub](https://github.com/NLRWindSystems/WOMBAT/blob/main/NOTICE), along with the
 complete [license](https://github.com/NLRWindSystems/WOMBAT/blob/main/LICENSE) details.
 

@@ -14,7 +14,7 @@ DOE. The results are displayed in
 ### `COWER_om_worflow.ipynb`
 
 This workflow example demonstrates the new (as of v0.13) default offshore wind data sets and the
-O&M portion of the NREL Cost of Wind Energy Review (COWER) analysis. The underlying data and example
+O&M portion of the NLR Cost of Wind Energy Review (COWER) analysis. The underlying data and example
 are kept up to date every year for this project, so the data will be updated annually (as of 2025).
 
 ## Explanations
@@ -66,7 +66,7 @@ to date with WOMBAT's input changes.
 
 This example demonstrates the WOMBAT analysis portion of the 2025 doctoral dissertation by
 Nadezda Avanessova [^avanessova2025], which in part focuses on a comparison of
-ORE Catapult's COMPASS, WavEC's O&M Tool, and NREL's WOMBAT for offshore wind O&M. This example
+ORE Catapult's COMPASS, WavEC's O&M Tool, and NLR's WOMBAT for offshore wind O&M. This example
 was originally run in v0.8.1, and updated to v0.12, so some results will differ from what was published.
 
 ### `dinwoodie_validation.ipynb`
@@ -81,7 +81,7 @@ IEA, 2016 [^smart2016iea].
 
 ### `timing_benchmarks.ipynb`
 
-This notebook is a simple benchmark for comparing run times between releases from NREL's
+This notebook is a simple benchmark for comparing run times between releases from NLR's
 FY22 & FY23. That said, there has been a change in computers since running this, and
 the listed times for v0.7 in the notebooks will not match those in this example.
 

@@ -27,7 +27,7 @@ With that said, it would be greatly appreciated for issues or PRs to be submitte
 any improvements at all, from fixing typos (guaranteed to be a few) to features to
 testing.
 
-If you use this library please cite our NREL Technical Report:
+If you use this library please cite our NLR Technical Report:
 
 ```bibtex
    @techreport{hammond2022wombat,
@@ -45,11 +45,11 @@ If you use this library please cite our NREL Technical Report:
 
 ## Part of the WETO Stack
 
-WOMBAT is primarily developed with the support of the U.S. Department of Energy and is part of the [WETO Software Stack](https://nrel.github.io/WETOStack). For more information and other integrated modeling software, see:
-- [Portfolio Overview](https://nrel.github.io/WETOStack/portfolio_analysis/overview.html)
-- [Entry Guide](https://nrel.github.io/WETOStack/_static/entry_guide/index.html)
-- [Techno-Economic Modeling Workshop](https://nrel.github.io/WETOStack/workshops/user_workshops_2024.html#tea-and-cost-modeling)
-- [Systems Engineering Workshop](https://nrel.github.io/WETOStack/workshops/user_workshops_2024.html#systems-engineering)
+WOMBAT is primarily developed with the support of the U.S. Department of Energy and is part of the [WETO Software Stack](https://nlr.github.io/WETOStack). For more information and other integrated modeling software, see:
+- [Portfolio Overview](https://nlr.github.io/WETOStack/portfolio_analysis/overview.html)
+- [Entry Guide](https://nlr.github.io/WETOStack/_static/entry_guide/index.html)
+- [Techno-Economic Modeling Workshop](https://nlr.github.io/WETOStack/workshops/user_workshops_2024.html#tea-and-cost-modeling)
+- [Systems Engineering Workshop](https://nlr.github.io/WETOStack/workshops/user_workshops_2024.html#systems-engineering)
 
 ## WOMBAT in Action
 

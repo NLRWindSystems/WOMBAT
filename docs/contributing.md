@@ -38,7 +38,7 @@ documentation changes into WOMBAT, or to push changes upstream to the main NLRWi
 
 ## Keeping your fork in sync with NLRWindSystems/WOMBAT
 
-The "main" WOMBAT repository is regularly updated with ongoing research at NREL and beyond. After
+The "main" WOMBAT repository is regularly updated with ongoing research at NLR and beyond. After
 creating and cloning your fork from the previous section, you might be wondering how to keep it
 up to date with the latest improvements.
 
@@ -99,7 +99,7 @@ New feature requests, changes, enhancements, non-methodology features, and bug r
 as new issues in the [Github.com issue tracker](https://github.com/NLRWindSystems/WOMBAT/issues) at any time.
 Please be sure to fully describe the issue.
 
-For other issues, please email rob.hammond@nrel.gov.
+For other issues, please email rob.hammond@nlr.gov.
 
 ### Issue Submission Checklist
 

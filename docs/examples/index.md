@@ -7,7 +7,7 @@ demonstrated through example notebooks. To fully follow the particulars of each 
 it is recommended to see how each model's configuration files are composed.
 
 For thorough explanations of the design and implementation ethos of the model, please
-see our NREL Technical Report: https://www.osti.gov/biblio/1894867 {cite}`osti_1894867`,
+see our NLR Technical Report: https://www.osti.gov/biblio/1894867 {cite}`osti_1894867`,
 which was published alongside v0.5.1, so some functionality has been updated.
 
 ## Feature Overview
@@ -209,7 +209,7 @@ floating offshore wind cases.
 
 Unlike other datasets in this repository, which largely reflect publicly available sources, this
 dataset incorporates **internal adjustments and harmonizations** to align with research-focused
-scenarios for NREL products that may require outputs to be in 2024 USD, like for example, the Annual
+scenarios for NLR products that may require outputs to be in 2024 USD, like for example, the Annual
 Technology Baseline, or the Cost of Wind Energy Review.
 
 #### Land-Based
@@ -226,7 +226,7 @@ Material costs for repairs and replacements, as well as failure data, are source
 {cite:t}`corewind_d61_2020, corewind_d42_2021`. Fixed cost data is primarily derived from
 {cite:t}`bvg_guide_2023, bvg_guide_2025`, while vessel day rate and mobilization assumptions are
 compiled from a range of public sources. For detailed reference information, please contact Daniel
-Mulas Hernando (Daniel.MulasHernando@nrel.gov) to request access to WOMBAT_cost_history.xlsx.
+Mulas Hernando (Daniel.MulasHernando@nlr.gov) to request access to WOMBAT_cost_history.xlsx.
 
 - **Cost Year:** All monetary values are standardized to **2024 USD**.
 - **Data Integration:** Inputs were consolidated from multiple public sources and internal records (`WOMBAT_cost_history.xlsx`), with historical exchange rates and inflation applied to transform costs to 2024 USD.
@@ -261,7 +261,7 @@ The accompanying notebook, **`examples/COWER_om_workflow.ipynb`**, demonstrates 
 
 #### Notes
 
-- `WOMBAT_cost_history.xlsx` is an internal NREL document. For questions, contact **Daniel.MulasHernando@nrel.gov**.
+- `WOMBAT_cost_history.xlsx` is an internal NLR document. For questions, contact **Daniel.MulasHernando@nlr.gov**.
 - This dataset should be treated as a **scenario-based reference**, not as purely empirical or historical data.
 
 ## References
