@@ -382,13 +382,16 @@ class Metrics:
         pd.DataFrame
             The events dataframe with costs adjusted for inflation.
         """
+        events = events.astype(dict.fromkeys(self._cost_columns, "float"))
+
         adjusted_inflation = deepcopy(self.inflation_rate)
         years = events.year.unique()
         years.sort()
         for year in years:
-            row_filter = events.year == year
             if year > years[0]:
-                events.loc[row_filter, self._cost_columns] *= adjusted_inflation
+                events.loc[events.year.eq(year), self._cost_columns] *= (
+                    adjusted_inflation
+                )
                 adjusted_inflation *= self.inflation_rate
 
         return events
