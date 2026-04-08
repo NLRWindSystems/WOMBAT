@@ -1025,15 +1025,15 @@ class Metrics:
                 return pd.DataFrame(at_sea.sum()[["duration"]]).T.rename(
                     columns={"duration": "Total Crew Hours at Sea"}
                 )
-        additional_cols = frequency.group_cols
+        time_cols = frequency.group_cols
         total_hours = (
             total_hours.drop(columns=frequency.drop_cols)
-            .groupby(group_cols)[["N"]]
+            .groupby(time_cols)[["N"]]
             .sum()
         )
 
-        columns = additional_cols + columns
-        group_cols.extend(additional_cols)
+        columns = time_cols + columns
+        group_cols.extend(time_cols)
         at_sea = at_sea[group_cols + ["duration"]].groupby(group_cols).sum()
         if by_equipment:
             total = []
@@ -1046,7 +1046,7 @@ class Metrics:
             total_hours = (
                 total_hours.reset_index()
                 .rename(columns={"N": "Total Crew Hours at Sea"})[columns]
-                .set_index(additional_cols)
+                .set_index(time_cols)
             )
             return total_hours
 

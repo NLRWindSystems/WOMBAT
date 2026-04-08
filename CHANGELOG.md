@@ -8,6 +8,8 @@
 - Cast the weather datetime index to "us" instead of "ns" to match updated Pandas 3 and Polars
   defaults.
 - Cost columns are forced to be float columns to ensure for Pandas dtypes compatibility.
+- Fixes a bug in `Metrics.vessel_crew_hours_at_sea` where equipment-wise aggregations fail at
+  frequencies more granular than the project level.
 
 ## v0.13.2 - 10 February 2026
 
