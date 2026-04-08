@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## v0.13.3. - 8 April 2026
+
+- Enable Pandas v3.
+- Replaces some instances of `pd.DataFrame.values` with `pd.DataFrame.to_numpy()` to avoid
+  compatibility issues in Pandas 2.3.3 and Pandas 3+.
+- Cast the weather datetime index to "us" instead of "ns" to match updated Pandas 3 and Polars
+  defaults.
+- Cost columns are forced to be float columns to ensure for Pandas dtypes compatibility.
+
 ## v0.13.2 - 10 February 2026
 
 - Temporarily prohibit Pandas 3.0 to resolve failing tests and integrations.
