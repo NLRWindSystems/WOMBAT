@@ -512,9 +512,10 @@ class ServiceEquipment(RepairsMixin):
         starting_operating_level: float,
     ) -> None:
         """Goes into the repaired subassembly, component, or cable and returns its
-        ``operating_level`` back to good as new for the specific repair. For fatal cable
-        failures, all upstream turbines are turned back on unless there is another fatal
-        cable failure preventing any more from operating.
+        ``operating_level`` back to good as new for the specific repair. A replacement
+        clears the full-outage event before restarting the failure and maintenance
+        processes. For fatal cable failures, all upstream turbines are turned back on
+        unless there is another fatal cable failure preventing any more from operating.
 
         Parameters
         ----------
@@ -533,6 +534,8 @@ class ServiceEquipment(RepairsMixin):
             _ = self.manager.purge_subassembly_requests(
                 repair.system_id, repair.subassembly_id
             )
+            if not subassembly.broken.triggered:
+                subassembly.broken.succeed()
             subassembly.recreate_processes()
         elif operation_reduction == 1:
             subassembly.operating_level = repair.prior_operating_level
