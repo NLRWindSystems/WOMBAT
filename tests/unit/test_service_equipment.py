@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import numpy as np
+import pytest
 import numpy.testing as npt
+from attrs import evolve
 
 from wombat.windfarm import Windfarm
 from wombat.core.library import load_yaml
@@ -155,6 +157,41 @@ def test_service_equipment_init(env_setup):
             assert len(getattr(manager.downtime_based_equipment, capability)) == 1
         else:
             assert getattr(manager.request_based_equipment, capability) == []
+
+
+@pytest.mark.parametrize("operation_reduction", [0.5, 1.0])
+def test_replacement_restarts_maintenance(env_setup, operation_reduction):
+    """Check that a replaced subassembly schedules maintenance again."""
+    env = env_setup
+    manager = RepairManager(env)
+    windfarm = Windfarm(env, "layout_single_subassembly.csv", manager)
+    vessel = ServiceEquipment(env, windfarm, manager, "hlv_requests.yaml")
+    turbine = windfarm.system("WTG001")
+    generator = turbine.generator
+    replacement = evolve(
+        generator.data.failures[-1],
+        operation_reduction=operation_reduction,
+        replacement=True,
+    )
+
+    env.run(until=1)
+    generator.trigger_request(replacement)
+    (request,) = manager.items
+    manager.invalidate_system(turbine)
+    manager.interrupt_system(turbine, subassembly_full_reset=generator.id)
+    env.run(until=2)
+    vessel.register_repair_with_subassembly(
+        generator, request, generator.operating_level
+    )
+
+    # The fixture's "test check" is scheduled after ten days of operation.
+    env.run(until=11 * 24)
+    assert any(
+        item.system_id == turbine.id
+        and item.subassembly_id == generator.id
+        and item.details.description == "test check"
+        for item in manager.items
+    )
 
 
 def test_port_distance_setup(env_setup):
