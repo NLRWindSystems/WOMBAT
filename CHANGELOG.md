@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Unreleased
+
+- Resume failure and maintenance scheduling after an in-situ replacement of a
+  fully stopped component ([#250](https://github.com/NLRWindSystems/WOMBAT/issues/250)).
+
 ## v0.13.5 - 21 October 2026
 
 - Update versioning requirements for the pre-commit workflows.
