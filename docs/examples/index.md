@@ -79,7 +79,9 @@ modeling assumptions as well as the basic operations of the maintenance and fail
     will cause
   - `replacement`: if `True`, then all preceding failures and maintenance tasks are
     cancelled and the time until the next event is reset because a replacement is
-    required, otherwise, each successive failure is added to the repair queue
+    required. After an in-situ replacement of a fully stopped component, failure and
+    operating-time maintenance scheduling resumes. If `False`, each successive failure
+    is added to the repair queue.
 - Commonalities between Substations, Turbines, and Cables
   - Maintenance and Failures compose the actual "model"
   - `operating_level` provides the real degradation of a model, including if it is turned
