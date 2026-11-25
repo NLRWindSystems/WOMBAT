@@ -326,6 +326,10 @@ subassembly.
 For complete documentation of how the servicing equipment parameters are defined, please
 see the [ServiceEquipmentData API documentation](types:service-equipment)
 
+Set `workday_start: 0` and `workday_end: 24` for round-the-clock servicing. During
+in-situ repairs, unsafe weather pauses work and the remaining repair hours carry
+forward when conditions permit work to resume.
+
 Below is a definition of the different equipment codes and their designations to show
 the breadth of what can be simulated. These codes do not have separate operating models,
 but instead allow the user to specify the types of operations the servicing equipment

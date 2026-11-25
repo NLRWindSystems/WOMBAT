@@ -4,6 +4,8 @@
 
 - Resume failure and maintenance scheduling after an in-situ replacement of a
   fully stopped component ([#250](https://github.com/NLRWindSystems/WOMBAT/issues/250)).
+- Keep progress on in-situ work during round-the-clock shifts and account for
+  partial hours when checking whether a weather window is long enough.
 
 ## v0.13.5 - 21 October 2026
 
