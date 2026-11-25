@@ -21,7 +21,6 @@ import simpy
 import pandas as pd
 import polars as pl
 from simpy.events import Event, Process, Timeout
-from pandas.core.indexes.datetimes import DatetimeIndex
 
 from wombat.core import (
     Maintenance,
@@ -766,7 +765,7 @@ class ServiceEquipment(RepairsMixin):
 
     def find_interrupted_weather_window(
         self, hours_required: int | float, *, ignore_shift: bool = False
-    ) -> tuple[DatetimeIndex, np.ndarray, bool]:
+    ) -> tuple[pl.Series, pl.Series, bool]:
         """Assesses at which points in the repair window, the wind (and wave)
         constraints for safe operation are met.
 
@@ -787,22 +786,27 @@ class ServiceEquipment(RepairsMixin):
 
         Returns
         -------
-        tuple[DatetimeIndex, np.ndarray, bool]
-            The pandas DatetimeIndex, and a corresponding boolean array for what points
-            in the time window are safe to complete a maintenance task or repair.
+        tuple[pl.Series, pl.Series, bool]
+            Forecast timestamps, a boolean series of safe weather hours, and whether
+            the window has enough workable time to finish the job.
         """
         window_found = False
-        hours_required = ceil(hours_required)
+        forecast_hours = ceil(hours_required)
+        current = self.env.simulation_time
+        elapsed_in_first_hour = 1 - hours_until_future_hour(current, current.hour + 1)
 
         for i in range(10):  # no more than 10 attempts to find a window
             dt_ix, hour_ix, weather = self._weather_forecast(
-                hours_required + (i * 24), which="repair"
+                forecast_hours + (i * 24), which="repair"
             )
             window = weather
             if not ignore_shift:
                 working_hours = self._is_workshift(hour_ix)
                 window &= working_hours
-            if window.sum() >= hours_required:
+            # The first forecast entry only covers the rest of the current hour.
+            safe_hours = int(window.sum())
+            elapsed_safe_time = elapsed_in_first_hour * int(window.head(1).sum())
+            if safe_hours - elapsed_safe_time >= hours_required:
                 window_found = True
                 break
 
@@ -1418,6 +1422,9 @@ class ServiceEquipment(RepairsMixin):
     ) -> Generator[Timeout | Process]:
         """Processes the repair including any weather and shift delays.
 
+        Round-the-clock shifts have no shift deadline. Work interrupted by weather
+        resumes with the remaining repair hours when conditions permit.
+
         Parameters
         ----------
         request : RepairRequest
@@ -1479,8 +1486,7 @@ class ServiceEquipment(RepairsMixin):
         current = self.env.simulation_time
         hours_required = request.details.time - time_processed
         if self.settings.non_stop_shift:
-            # Default the available to a buffered amount for initial processing
-            hours_available = hours_required * 2
+            hours_available = float("inf")
         else:
             hours_available = hours_until_future_hour(current, end_shift)
 
