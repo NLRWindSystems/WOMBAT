@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Restore scheduled vessel timing regression tests using controlled weather and
+  maintenance requests ([#170](https://github.com/NLRWindSystems/WOMBAT/issues/170)).
 - Resume failure and maintenance scheduling after an in-situ replacement of a
   fully stopped component ([#250](https://github.com/NLRWindSystems/WOMBAT/issues/250)).
 
