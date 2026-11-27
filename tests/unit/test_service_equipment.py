@@ -11,7 +11,11 @@ from wombat.windfarm import Windfarm
 from wombat.core.library import load_yaml
 from wombat.core.data_classes import EquipmentMap, EquipmentClass
 from wombat.core.repair_management import RepairManager
-from wombat.core.service_equipment import ServiceEquipment, consecutive_groups
+from wombat.core.service_equipment import (
+    ServiceEquipment,
+    consecutive_groups,
+    reset_system_operations,
+)
 
 
 def test_consecutive_groups():
@@ -183,6 +187,40 @@ def test_replacement_restarts_maintenance(env_setup, operation_reduction):
     vessel.register_repair_with_subassembly(
         generator, request, generator.operating_level
     )
+
+    # The fixture's "test check" is scheduled after ten days of operation.
+    env.run(until=11 * 24)
+    assert any(
+        item.system_id == turbine.id
+        and item.subassembly_id == generator.id
+        and item.details.description == "test check"
+        for item in manager.items
+    )
+
+
+@pytest.mark.parametrize("operation_reduction", [0.5, 1.0])
+def test_tow_to_port_reset_restarts_maintenance(env_setup, operation_reduction):
+    """Check that a subassembly reset after a tow-to-port repair schedules
+    maintenance again.
+    """
+    env = env_setup
+    manager = RepairManager(env)
+    windfarm = Windfarm(env, "layout_single_subassembly.csv", manager)
+    turbine = windfarm.system("WTG001")
+    generator = turbine.generator
+    failure = evolve(
+        generator.data.failures[-1], operation_reduction=operation_reduction
+    )
+
+    env.run(until=1)
+    generator.trigger_request(failure)
+    manager.invalidate_system(turbine)
+    manager.interrupt_system(turbine, subassembly_full_reset=generator.id)
+    env.run(until=2)
+
+    # The same steps as ``ServiceEquipment.run_tow_to_site`` after a port repair
+    reset_system_operations(turbine, [generator.id])
+    manager.enable_requests_for_system(turbine)
 
     # The fixture's "test check" is scheduled after ten days of operation.
     env.run(until=11 * 24)

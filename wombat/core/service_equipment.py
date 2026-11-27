@@ -132,6 +132,8 @@ def validate_end_points(start: str, end: str, *, no_intrasite: bool = False) -> 
 def reset_system_operations(system: System, subassembly_resets: list[str]) -> None:
     """Completely resets the failure and maintenance events for a given system
     and its subassemblies, and puts each ``Subassembly.operating_level`` back to 100%.
+    A full-outage event on a reset subassembly is cleared before its failure and
+    maintenance processes are restarted.
 
     .. note:: This is only intended to be used in conjunction with a tow-to-port
         repair where a turbine will be completely serviced.
@@ -150,6 +152,8 @@ def reset_system_operations(system: System, subassembly_resets: list[str]) -> No
     for subassembly in system.subassemblies:
         if subassembly.id in subassembly_resets:
             subassembly.operating_level = 1.0
+            if not subassembly.broken.triggered:
+                subassembly.broken.succeed()
             subassembly.recreate_processes()
 
 
