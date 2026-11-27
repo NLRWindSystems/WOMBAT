@@ -4,6 +4,9 @@
 
 - Resume failure and maintenance scheduling after an in-situ replacement of a
   fully stopped component ([#250](https://github.com/NLRWindSystems/WOMBAT/issues/250)).
+- Keep a waiting request in the repair queue when a requests-based vessel's charter ends
+  and the vessel is dispatched again, so it can no longer be dropped
+  ([#258](https://github.com/NLRWindSystems/WOMBAT/issues/258)).
 
 ## v0.13.5 - 21 October 2026
 

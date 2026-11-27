@@ -337,7 +337,9 @@ class RepairManager(FilterStore):
                 and x is not request
             ]
             if new_request_check:
-                new_request = self.get(lambda x: x == new_request_check[0]).value
+                # Keep the request in the queue: the servicing equipment collects it
+                # from there, as with a newly submitted request
+                new_request = new_request_check[0]
                 yield self.env.process(self._run_equipment_requests(new_request))
         return None
 
