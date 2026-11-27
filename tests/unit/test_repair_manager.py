@@ -2,6 +2,7 @@
 
 import numpy as np
 import pytest
+from attrs import evolve
 
 from wombat.core.library import load_yaml
 from wombat.core.data_classes import (
@@ -586,3 +587,45 @@ def test_purge_subassembly_requests(env_setup):
     assert len(response) == 1
     assert response[0] == gbx_medium_repair3
     assert len(manager.items) == 0
+
+
+def test_requests_redispatch_keeps_remaining_request(env_setup):
+    """Check that a request still waiting when a requests-based vessel's charter ends
+    is repaired by the next dispatch, rather than being dropped from the queue.
+    """
+    env = env_setup
+    manager = RepairManager(env)
+    windfarm = Windfarm(env, "layout_single_subassembly.csv", manager)
+
+    # A vessel with a 1 day charter. It checks for the end of the charter only
+    # between loops, and each loop repairs up to two requests, so the first charter
+    # repairs two of the three requests and the third is left for the next dispatch.
+    hlv = load_yaml(env.data_dir / "vessels", "hlv_requests.yaml")
+    hlv.update(
+        strategy_threshold=1,
+        mobilization_days=0,
+        charter_days=1,
+        max_windspeed_transport=99,
+        max_windspeed_repair=99,
+        max_waveheight_transport=99,
+        max_waveheight_repair=99,
+    )
+    vessel = ServiceEquipment(env, windfarm, manager, hlv)
+    vessel.finish_setup_with_environment_variables()
+
+    replacement = windfarm.system("WTG001").generator.data.failures[-1]
+    assert EquipmentClass.LCN in replacement.service_equipment
+    replacement = evolve(replacement, time=30, operation_reduction=0)
+
+    env.run(until=1)
+    for system_id in ("WTG001", "WTG002", "WTG003"):
+        windfarm.system(system_id).generator.trigger_request(replacement)
+    request_ids = [
+        r.request_id
+        for r in manager.items
+        if EquipmentClass.LCN in r.details.service_equipment
+    ]
+    assert len(request_ids) == 3
+
+    env.run(until=10 * 24)
+    assert set(request_ids) <= manager.request_status_map["completed"]
